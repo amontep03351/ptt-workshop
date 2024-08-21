@@ -34,6 +34,7 @@ body, html {
 }
 
 .info-form, .activity-details {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px; /* Add space between form elements */
@@ -60,12 +61,12 @@ legend {
 }
 
 .info-form input {
-    padding: 10px;
+    padding: 18px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
-    width: 90%;
+    font-size: 14px;
+    width: 85%;
 }
 
 .info-form button, .back-button {
