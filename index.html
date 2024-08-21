@@ -3,83 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Layout</title>
+    <title>Activity Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="left">
-            <h1>Information</h1>
-            <p>Here is some information about the content.</p>
+      <div class="left">
+            <div id="form-container" class="form-container">
+                <form class="info-form">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                        <br>
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                        <br>
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="tel" id="phone-number" name="phone-number" required>
+                    </fieldset>
 
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="activity-details" class="activity-details" style="display: none;">
+                <button id="back-button" class="back-button">Back to Form</button>
+                <div id="activity-info"></div>
+            </div>
         </div>
         <div class="right">
-            <h2>Activity List</h2>
-            <div class="activity-list-div">
-              <ul class="activity-list">
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 1</h3>
-                          <p class="details">Short description of Activity 1.</p>
-                          <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 2</h3>
-                          <p class="details">Short description of Activity 2.</p>
-                          <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 1</h3>
-                          <p class="details">Short description of Activity 1.</p>
-                          <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 2</h3>
-                          <p class="details">Short description of Activity 2.</p>
-                          <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 1</h3>
-                          <p class="details">Short description of Activity 1.</p>
-                          <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 2</h3>
-                          <p class="details">Short description of Activity 2.</p>
-                          <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
-                  <li>
-                      <div class="activity-info">
-                          <h3>Activity 1</h3>
-                          <p class="details">Short description of Activity 1.</p>
-                          <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
-                          <button class="view-btn">View</button>
-                      </div>
-                  </li>
+          <h2>Activity List</h2>
+           <div class="activity-list-div">
 
+             <ul class="activity-list">
+                 <li data-id="1">
+                     <div class="activity-info">
+                         <h3>Activity 1</h3>
+                         <p class="details">Short description of Activity 1.</p>
+                         <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
+                         <button class="view-btn">View</button>
+                     </div>
+                 </li>
+                 <li data-id="2">
+                     <div class="activity-info">
+                         <h3>Activity 2</h3>
+                         <p class="details">Short description of Activity 2.</p>
+                         <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
+                         <button class="view-btn">View</button>
+                     </div>
+                 </li>
+                 <li data-id="3">
+                     <div class="activity-info">
+                         <h3>Activity 3</h3>
+                         <p class="details">Short description of Activity 3.</p>
+                         <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
+                         <button class="view-btn">View</button>
+                     </div>
+                 </li>
+                 <li data-id="4">
+                     <div class="activity-info">
+                         <h3>Activity 4</h3>
+                         <p class="details">Short description of Activity 4.</p>
+                         <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
+                         <button class="view-btn">View</button>
+                     </div>
+                 </li>
+                 <!-- Add more activities as needed -->
+             </ul>
+           </div>
 
-                  <!-- Add more activities as needed -->
-              </ul>
-            </div>
-
-        </div>
+       </div>
     </div>
 </body>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+    const formContainer = document.getElementById('form-container');
+    const activityDetails = document.getElementById('activity-details');
+    const activityInfo = document.getElementById('activity-info');
+    const backButton = document.getElementById('back-button');
+    const viewButtons = document.querySelectorAll('.view-btn');
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const listItem = e.target.closest('li');
+            const activityId = listItem.getAttribute('data-id');
+            // Sample data, you might want to replace it with a real data fetch
+            const activities = {
+                1: {
+                    title: 'Activity 1',
+                    description: 'Detailed information about Activity 1.',
+                    seatsInfo: 'Total Seats: 30 | Available Seats: 10'
+                },
+                2: {
+                    title: 'Activity 2',
+                    description: 'Detailed information about Activity 2.',
+                    seatsInfo: 'Total Seats: 25 | Available Seats: 5'
+                }
+                // Add more activities as needed
+            };
+
+            const activity = activities[activityId];
+            activityInfo.innerHTML = `
+                <h2>${activity.title}</h2>
+                <p>${activity.description}</p>
+                <p>${activity.seatsInfo}</p>
+            `;
+
+            formContainer.style.display = 'none';
+            activityDetails.style.display = 'flex';
+        });
+    });
+
+    backButton.addEventListener('click', () => {
+        formContainer.style.display = 'flex';
+        activityDetails.style.display = 'none';
+    });
+});
+
+</script>
 </html>
