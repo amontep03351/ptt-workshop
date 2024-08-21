@@ -1,0 +1,109 @@
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.left, .right {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left {
+    background-color: lightblue;
+    color: white;
+    overflow: auto; /* Ensures content doesn't overflow */
+    height: 100%; /* Full height */
+}
+
+.right {
+    background-color: lightcoral;
+    color: white;
+    overflow: auto; /* Allows scrolling if content overflows */
+    height: 100%; /* Full height */
+}
+
+.activity-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: calc(100vh - 60px); /* Adjust based on the header height */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.activity-list li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background color */
+    border-radius: 8px;
+}
+
+.activity-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-info h3 {
+    margin: 0 0 10px;
+}
+
+.details {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.seats-info {
+    font-size: 14px;
+    color: #eee;
+    margin: 10px 0;
+}
+
+.view-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Tablet and PC layout */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .left {
+        flex: 7; /* 70% */
+    }
+
+    .right {
+        flex: 3; /* 30% */
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        flex: 1; /* 50% each */
+    }
+}
