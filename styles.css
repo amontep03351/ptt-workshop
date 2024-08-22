@@ -505,9 +505,9 @@ legend {
 
     .left, .right {
         flex: 1; /* 50% each */
-    }
-    .right {
         padding-top: 0px;
+    }
+    .right { 
     }
     .activity-list-div{
       display: flex;
