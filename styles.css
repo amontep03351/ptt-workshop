@@ -237,6 +237,7 @@ legend {
 }
 
 .view-btn {
+    font-family: "Sarabun", sans-serif;
     background-color: #ff90bc;
     color: #000000;
     border: none;
@@ -331,7 +332,8 @@ legend {
 }
 
 #search-button {
-    background-color: #007bff;
+    font-family: "Sarabun", sans-serif;
+    background-color: #ff90bc;
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -341,7 +343,7 @@ legend {
 }
 
 #search-button:hover {
-    background-color: #0056b3;
+    background-color: #fec6dc;
 }
 .dropdown {
     position: relative;
