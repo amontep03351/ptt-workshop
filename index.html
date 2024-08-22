@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
 <body>
     <div class="container">
@@ -24,64 +27,74 @@
                        เพื่อให้คุณได้สัมผัสประสบการณ์ที่ดีที่สุด กรุณากรอกข้อมูลเบื้องต้นของคุณด้านล่าง แล้วคุณจะสามารถเลือกและเข้าร่วมกิจกรรมที่สนใจได้ทันที
                    </p>
                    <div class="button-container">
-                       <button class="login-button">เข้าสู่ระบบ</button>
-                       <button class="register-button">สมัครสมาชิก</button>
+                       <button class="login-button" id="open-login-modal">เข้าสู่ระบบ</button>
+                       <button class="register-button" id="open-register-modal">สมัครสมาชิก</button>
                    </div>
-                   <!-- <button class="btn">เริ่มเลย</button> -->
-                   <!-- <form>
-                       <div class="form-group">
-                           <input type="text" placeholder="ชื่อ" required>
+                   <!-- Login Modal -->
+                   <div id="login-modal" class="modal">
+                       <div class="modal-content">
+                           <span class="close" id="close-login-modal">&times;</span>
+                           <h2>เข้าสู่ระบบ</h2>
+
                        </div>
-                       <div class="form-group">
-                           <input type="text" placeholder="นามสกุล" required>
+                   </div>
+
+                   <!-- Register Modal -->
+                   <div id="register-modal" class="modal">
+                       <div class="modal-content">
+                           <span class="close" id="close-register-modal">&times;</span>
+                           <h2>สมัครสมาชิก</h2>
+
                        </div>
-                       <div class="form-group">
-                           <input type="tel" placeholder="เบอร์โทรศัพท์" required>
-                       </div>
-                       <button class="btn">เข้าร่วมกิจกรรม</button>
-                   </form> -->
+                   </div>
                </div>
             </div>
         </div>
 
         </div>
         <div class="right">
-           <h5>Activity List</h5>
-           <div class="activity-list-div">
+          <div class="search-container">
+              <div class="dropdown"  >
+                  <button class="dropbtn" >
+                      <i class="fa-solid fa-arrow-down-short-wide"></i>
+                  </button>
+                  <div class="dropdown-content">
+                      <a href="#" onclick="function_short('name-asc'); return false;">เรียงตามชื่อ (จาก A-Z)</a>
+                      <a href="#" onclick="function_short('name-desc'); return false;">เรียงตามชื่อ (จาก Z-A)</a>
+                  </div>
+              </div>
+              <input type="text" id="search" placeholder="ค้นหาชื่อกิจกรรม">
+              <button type="button" id="search-button">ค้นหา</button>
 
-             <ul class="activity-list">
-                 <li data-id="1">
+
+          </div>
+           <div class="activity-list-div">
+             <ul id="activity-list" class="activity-list">
+                 <li data-id="1" data-name="กิจกรรม A">
                      <div class="activity-info">
-                         <h3>Activity 1</h3>
+                         <h3>กิจกรรม A</h3>
                          <p class="details">Short description of Activity 1.</p>
                          <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
                          <button class="view-btn">View</button>
                      </div>
                  </li>
-                 <li data-id="2">
+                 <li data-id="2" data-name="กิจกรรม B">
                      <div class="activity-info">
-                         <h3>Activity 2</h3>
+                         <h3>กิจกรรม B</h3>
                          <p class="details">Short description of Activity 2.</p>
                          <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
                          <button class="view-btn">View</button>
                      </div>
                  </li>
-                 <li data-id="3">
+                 <li data-id="3" data-name="กิจกรรม C">
                      <div class="activity-info">
-                         <h3>Activity 3</h3>
+                         <h3>กิจกรรม C</h3>
                          <p class="details">Short description of Activity 3.</p>
                          <p class="seats-info">Total Seats: 30 | Available Seats: 10</p>
                          <button class="view-btn">View</button>
                      </div>
                  </li>
-                 <li data-id="4">
-                     <div class="activity-info">
-                         <h3>Activity 4</h3>
-                         <p class="details">Short description of Activity 4.</p>
-                         <p class="seats-info">Total Seats: 25 | Available Seats: 5</p>
-                         <button class="view-btn">View</button>
-                     </div>
-                 </li>
+
                  <!-- Add more activities as needed -->
              </ul>
            </div>
@@ -89,8 +102,84 @@
        </div>
     </div>
 </body>
-<script type="text/javascript">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  // Open Login Modal
+    $('#open-login-modal').click(function() {
+        $('#login-modal').fadeIn();
+    });
+
+    // Open Register Modal
+    $('#open-register-modal').click(function() {
+        $('#register-modal').fadeIn();
+    });
+
+    // Close Login Modal
+    $('#close-login-modal').click(function() {
+        $('#login-modal').fadeOut();
+    });
+
+    // Close Register Modal
+    $('#close-register-modal').click(function() {
+        $('#register-modal').fadeOut();
+    });
+
+    // Close Modal when clicking outside the modal content
+    $(window).click(function(event) {
+        if ($(event.target).hasClass('modal')) {
+            $('.modal').fadeOut();
+        }
+    });
+    // $.ajax({
+    //     url: 'http://your-backend-url/activity-list', // URL ของ backend ของคุณ
+    //     method: 'POST', // หรือ 'GET', 'PUT', 'DELETE' ขึ้นอยู่กับการทำงานของคุณ
+    //     data: {
+    //         key1: 'value1',
+    //         key2: 'value2'
+    //     },
+    //     success: function(response) {
+    //         console.log('Success:', response);
+    //     },
+    //     error: function(xhr, status, error) {
+    //         console.log('Error:', error);
+    //     }
+    // });
+
+    $('#search-button').on('click', function() {
+       const searchTerm = $('#search').val().toLowerCase();
+       $('#activity-list li').each(function() {
+           const itemName = $(this).data('name').toLowerCase();
+           if (itemName.includes(searchTerm)) {
+               $(this).show();
+           } else {
+               $(this).hide();
+           }
+       });
+    });
 
 
+});
+function function_short(order) {
+  var $list = $('#activity-list');
+  var $items = $list.children('li').get();
+
+  $items.sort(function(a, b) {
+      var textA = $(a).text().toUpperCase();
+      var textB = $(b).text().toUpperCase();
+
+      if (order === 'name-asc') {
+          return textA.localeCompare(textB);
+      } else if (order === 'name-desc') {
+          return textB.localeCompare(textA);
+      }
+  });
+
+  $.each($items, function(index, item) {
+      $list.append(item);
+  });
+}
 </script>
+
 </html>
