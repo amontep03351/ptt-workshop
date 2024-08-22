@@ -507,7 +507,7 @@ legend {
         flex: 1; /* 50% each */
         padding-top: 0px;
     }
-    .right { 
+    .right {
     }
     .activity-list-div{
       display: flex;
@@ -552,12 +552,23 @@ legend {
         overflow-y: auto;
     }
     .button-container {
-        flex-direction: column;
+       padding-left: 0px;
+       padding-right: 0px; 
+       padding-top: 5px;
+       display: grid;
+       grid-template-columns: 1fr 1fr; /* สร้าง 2 คอลัมน์ที่มีขนาดเท่ากัน */
+       gap: 5px; /* ระยะห่างระหว่างคอลัมน์ */
     }
     .button-container button {
-        width: 100%;
-        min-width: unset;
-        margin-bottom: 10px;
+
+       font-size: 12px;
+
+    }
+    .item {
+        padding-top: 0px;
+        flex: 1; /* ทำให้คอลัมน์ขยายตัวให้เต็มพื้นที่ */
+        margin: 0px; /* ระยะห่างรอบๆ คอลัมน์ */
+        padding:  0px; /* เพิ่มพื้นที่ภายในของคอลัมน์ */
     }
     .dropbtn {
          font-size: 14px;
