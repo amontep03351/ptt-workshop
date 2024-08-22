@@ -273,7 +273,44 @@ legend {
     scrollbar-width: thin;
     scrollbar-color: #bbb transparent;
 }
-
+.button-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: center;
+   padding: 20px;
+}
+.button-container button {
+   padding: 10px 20px;
+   border: none;
+   border-radius: 30px;
+   font-size: 14px;
+   font-weight: bold;
+   cursor: pointer;
+   transition: transform 0.2s, box-shadow 0.3s;
+   outline: none;
+   min-width: 120px;
+}
+.login-button {
+   background: linear-gradient(135deg, #0062E6, #33AEFF);
+   color: white;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+   font-family: "Sarabun", sans-serif;
+}
+.register-button {
+   background: linear-gradient(135deg, #00C9A8, #00D084);
+   color: white;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+   font-family: "Sarabun", sans-serif;
+}
+.button-container button:hover {
+   transform: translateY(-1px);
+   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+.button-container button:active {
+   transform: translateY(0);
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
 /* Tablet and PC layout */
 @media (min-width: 768px) {
     .container {
@@ -378,5 +415,12 @@ legend {
         max-height: calc(38vh - 50px);
         overflow-y: auto;
     }
-
+    .button-container {
+        flex-direction: column;
+    }
+    .button-container button {
+        width: 100%;
+        min-width: unset;
+        margin-bottom: 10px;
+    }
 }
