@@ -4,6 +4,9 @@ body, html {
     padding: 0;
     height: 100%;
     box-sizing: border-box;
+    font-family: "Sarabun", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
 
 .container {
@@ -18,19 +21,125 @@ body, html {
 }
 
 .left {
-    background-color: lightblue;
+    background-color: #000000;
     color: white;
     overflow: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
+
+}
+.info-card {
+    top: 10px;
+    position: relative;
+    width: 88%;
+    height: 90%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
+.info-card img {
+    position: absolute;
+    top: -20px;
+    left:  0px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+.info-content {
+    margin-left: 90px; /* เพิ่ม margin ด้านซ้ายเพื่อเว้นที่ให้รูปภาพ */
+
+}
+
+.info-content h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.info-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+.get-started-btn {
+   background-color: #2196F3;
+   padding: 15px 25px;
+   font-size: 1.2rem;
+   margin-top: 20px;
+   width: auto;
+   max-width: 250px;
+   text-align: center;
+   display: inline-block;
+}
+
+.get-started-btn:hover {
+   background-color: #1976D2;
+}
+.welcome-container {
+    background-color: #fff;
+    width: 100%; /* ให้ขนาดของ div ปรับตามขนาดหน้าจอ */
+
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.welcome-container h1 {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 20px;
+    word-wrap: break-word; /* ป้องกันคำยาวเกินไป */
+}
+
+.welcome-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: #ff90bc;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Sarabun", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* ปรับปุ่มให้กว้างเต็มที่ในมือถือ */
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    background-color: #fec6dc;
+}
 .right {
-    background-color: lightcoral;
-    color: white;
+    color: #000000;
     overflow: auto;
     height: 100%;
+    background: linear-gradient(to right, #ff90bc, #fec6dc);
 }
 
 .info-form, .activity-details {
@@ -90,18 +199,20 @@ legend {
 
 .activity-list {
     list-style-type: none;
-    padding: 0;
+    padding: 0px;
     margin: 0;
-    width: 100%;
+    width: 100%;padding-right: 10px;
     max-height: calc(100vh - 60px);
     overflow-y: auto;
+
 }
 
 .activity-list li {
     margin-bottom: 15px;
     border-bottom: 1px solid #ddd;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    box-shadow: 0 15px 30px rgba(1, 1,2, 0.1);
+    background-color: #ffffff;
     border-radius: 8px;
 }
 
@@ -116,18 +227,18 @@ legend {
 
 .details {
     font-size: 14px;
-    color: #ddd;
+    color: #000000;
 }
 
 .seats-info {
     font-size: 14px;
-    color: #eee;
+    color: #000000;
     margin: 10px 0;
 }
 
 .view-btn {
-    background-color: #007bff;
-    color: white;
+    background-color: #ff90bc;
+    color: #000000;
     border: none;
     padding: 10px 15px;
     font-size: 14px;
@@ -137,8 +248,32 @@ legend {
 }
 
 .view-btn:hover {
-    background-color: #0056b3;
+    background-color: #fec6dc;
 }
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;  /* ความกว้างของ scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;  /* พื้นหลังของ track เป็นแบบโปร่งใส */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bbb;  /* สีของ scrollbar */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;  /* สีของ scrollbar เมื่อ hover */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #bbb transparent;
+}
+
 /* Tablet and PC layout */
 @media (min-width: 768px) {
     .container {
@@ -157,6 +292,36 @@ legend {
       height: 80%;
       width: 100%;
     }
+    .info-card img {
+      width: 100px;
+      height:100px;
+      top: -25px;
+    }
+    .info-content {
+      padding-top: 45px;
+      margin-left: 15px;  /* เพิ่ม margin ด้านซ้ายเพื่อเว้นที่ให้รูปภาพ */
+
+    }
+    .welcome-container {
+         padding: 20px; /* ลด padding เมื่อหน้าจอเล็กลง */
+     }
+
+     .welcome-container h1 {
+         font-size: 1.8rem;
+     }
+
+     .welcome-container p {
+         font-size: 1rem;
+     }
+
+     .btn {
+         font-size: 0.9rem; /* ลดขนาดฟอนต์ของปุ่มในหน้าจอเล็ก */
+     }
+
+     .get-started-btn {
+         font-size: 1rem;
+         padding: 12px 20px;
+     }
 }
 
 /* Mobile layout */
@@ -173,4 +338,43 @@ legend {
       height: 80%;
       width: 100%;
     }
+    .info-card img {
+      width: 100px;
+      height:100px;
+      position: absolute;
+      top: 30px;
+       left: 50%;
+       border-radius: 50%;
+       object-fit: cover;
+       border: 3px solid white;
+       transform: translate(-50%, -50%); /* จัดตำแหน่งรูปให้ตรงกลาง */
+    }
+
+    .info-content {
+
+          padding-top: 45px;
+        margin-left: 15px; /* เพิ่ม margin ด้านซ้ายเพื่อเว้นที่ให้รูปภาพ */
+
+    }
+    .welcome-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-container p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 8px 16px; /* ลด padding ของปุ่มในหน้าจอเล็กมาก */
+    }
+    .get-started-btn {
+       font-size: 0.9rem;
+       padding: 10px 15px;
+   }
+   .welcome-container {
+        padding: 20px; /* ลด padding เมื่อหน้าจอเล็กลง */
+        max-height: calc(38vh - 50px);
+        overflow-y: auto;
+    }
+
 }
