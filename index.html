@@ -5,30 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
       <div class="left">
-            <div id="form-container" class="form-container">
-                <form class="info-form">
-                    <fieldset>
-                        <legend>Personal Information</legend>
-                        <label for="first-name">First Name:</label><br>
-                        <input type="text" id="first-name" name="first-name" required><br>
-
-                        <label for="last-name">Last Name:</label><br>
-                        <input type="text" id="last-name" name="last-name" required><br>
-
-                        <label for="phone-number">Phone Number:</label><br>
-                        <input type="tel" id="phone-number" name="phone-number" required><br>
-                    </fieldset>
-                    <button type="submit">Submit</button>
-                </form>
+        <div class="info-card">
+            <img src="Activity.png" alt="Image">
+            <div class="info-content">
+              <div class="welcome-container">
+                   <h1>ยินดีต้อนรับสู่ Activity!</h1>
+                   <p>
+                       ที่นี่คุณจะได้พบกับกิจกรรมน่าสนใจมากมายให้คุณเข้าร่วม ไม่ว่าจะเป็นกิจกรรมผจญภัย งานสร้างสรรค์ หรือการเรียนรู้ เรามีครบทุกสิ่งที่คุณต้องการ
+                   </p>
+                   <p>
+                       เพื่อให้คุณได้สัมผัสประสบการณ์ที่ดีที่สุด กรุณากรอกข้อมูลเบื้องต้นของคุณด้านล่าง แล้วคุณจะสามารถเลือกและเข้าร่วมกิจกรรมที่สนใจได้ทันที
+                   </p>
+                   <button class="btn">ลงชื่อเข้าใช้</button>
+                   <!-- <form>
+                       <div class="form-group">
+                           <input type="text" placeholder="ชื่อ" required>
+                       </div>
+                       <div class="form-group">
+                           <input type="text" placeholder="นามสกุล" required>
+                       </div>
+                       <div class="form-group">
+                           <input type="tel" placeholder="เบอร์โทรศัพท์" required>
+                       </div>
+                       <button class="btn">เข้าร่วมกิจกรรม</button>
+                   </form> -->
+               </div>
             </div>
-            <div id="activity-details" class="activity-details" style="display: none;">
-                <button id="back-button" class="back-button">Back to Form</button>
-                <div id="activity-info"></div>
-            </div>
+        </div>
+
         </div>
         <div class="right">
           <h2>Activity List</h2>
@@ -75,59 +86,7 @@
     </div>
 </body>
 <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', () => {
-    const formContainer = document.getElementById('form-container');
-    const activityDetails = document.getElementById('activity-details');
-    const activityInfo = document.getElementById('activity-info');
-    const backButton = document.getElementById('back-button');
-    const viewButtons = document.querySelectorAll('.view-btn');
 
-    viewButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const listItem = e.target.closest('li');
-            const activityId = listItem.getAttribute('data-id');
-            // Sample data, you might want to replace it with a real data fetch
-            const activities = {
-                1: {
-                    title: 'Activity 1',
-                    description: 'Detailed information about Activity 1.',
-                    seatsInfo: 'Total Seats: 30 | Available Seats: 10'
-                },
-                2: {
-                    title: 'Activity 2',
-                    description: 'Detailed information about Activity 2.',
-                    seatsInfo: 'Total Seats: 25 | Available Seats: 5'
-                },
-                3: {
-                    title: 'Activity 3',
-                    description: 'Detailed information about Activity 3.',
-                    seatsInfo: 'Total Seats: 25 | Available Seats: 5'
-                },
-                4: {
-                    title: 'Activity 4',
-                    description: 'Detailed information about Activity 4.',
-                    seatsInfo: 'Total Seats: 25 | Available Seats: 5'
-                }
-                // Add more activities as needed
-            };
-
-            const activity = activities[activityId];
-            activityInfo.innerHTML = `
-                <h2>${activity.title}</h2>
-                <p>${activity.description}</p>
-                <p>${activity.seatsInfo}</p>
-            `;
-
-            formContainer.style.display = 'none';
-            activityDetails.style.display = 'flex';
-        });
-    });
-
-    backButton.addEventListener('click', () => {
-        formContainer.style.display = 'flex';
-        activityDetails.style.display = 'none';
-    });
-});
 
 </script>
 </html>
