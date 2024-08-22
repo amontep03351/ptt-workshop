@@ -351,8 +351,7 @@ legend {
     }
 
     .info-content {
-
-          padding-top: 45px;
+        padding-top: 45px;
         margin-left: 15px; /* เพิ่ม margin ด้านซ้ายเพื่อเว้นที่ให้รูปภาพ */
 
     }
@@ -372,7 +371,7 @@ legend {
        padding: 10px 15px;
    }
    .welcome-container {
-        padding: 20px; /* ลด padding เมื่อหน้าจอเล็กลง */
+        padding: 0px; /* ลด padding เมื่อหน้าจอเล็กลง */
         max-height: calc(38vh - 50px);
         overflow-y: auto;
     }
