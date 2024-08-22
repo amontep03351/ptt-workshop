@@ -333,6 +333,9 @@ legend {
     .left, .right {
         flex: 1; /* 50% each */
     }
+    .right {
+        padding-top: 0px;
+    }
     .activity-list-div{
       display: flex;
       height: 80%;
